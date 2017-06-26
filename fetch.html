@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>so fetch</title>
+
+    <style>
+      div {
+        background-color: red;
+        width: 10px;
+        margin-right: 5px;
+        display: inline;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+    for(let i=0; i < 10; i++ ) {
+      fetch('https://secure-castle-8699.herokuapp.com/')
+      .then((res) => {return res.json()})
+      .then((data) => {
+        console.log(data);
+        var stockNum = data['num'] * 10;
+
+        console.log(stockNum);
+        $( "body" ).append('<div style="height:' + stockNum + 'px;"></div>');
+       });
+     }
+   });
+    </script>
+
+  </body>
+</html>
