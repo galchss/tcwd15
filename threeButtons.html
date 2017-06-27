@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>three buttons</title>
+  </head>
+  <body>
+    <button type="button" action="genObject">Generating</button>
+    <button type="button" action="alerting">Alerting</button>
+    <button type="button" action="removing">Popping</button>
+
+    <script type="text/javascript">
+      var objectGeneration = document.querySelector('[action="genObject"]');
+      var createAlert = document.querySelector('[action="alerting"]');
+      var removeButton = document.querySelector('[action="removing"]');
+
+      var dataArray = [];
+
+      objectGeneration.addEventListener('click', function() {
+        var obj = {
+
+          number : Math.random(),
+          timestamp: Date.now()
+        };
+        dataArray.push(obj.number, obj.timestamp);
+        console.log(dataArray);
+      });
+
+      createAlert.addEventListener('click', function(){
+        alert(dataArray[1]);
+      });
+
+      removeButton.addEventListener('click', function(){
+        dataArray.pop();
+        console.log(dataArray);
+      })
+
+
+
+      </script>
+
+
+  </body>
+</html>
